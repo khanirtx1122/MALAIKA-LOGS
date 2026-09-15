@@ -86,7 +86,7 @@
       const slideEl = document.createElement('div');
       slideEl.className = `hero__slide ${i === 0 ? 'active' : ''} transition-${slide.transition}`;
       slideEl.innerHTML = `
-        <img src="${slide.imageUrl}" alt="${slide.collection}" class="hero__slide-img" loading="eager" />
+        <img src="${slide.imageUrl}" alt="${slide.collection}" class="hero__slide-img" loading="${i === 0 ? 'eager' : 'lazy'}" />
         <div class="hero__content">
           <div class="hero__ornament" aria-hidden="true">
             <div class="hero__ornament-line"></div>
@@ -256,12 +256,12 @@
     });
   }
 
-  // Preload images
+  // Preload first image only to prioritize initial load speed
   function preloadImages() {
-    SLIDES.forEach(s => {
+    if (SLIDES.length > 0) {
       const img = new Image();
-      img.src = s.imageUrl;
-    });
+      img.src = SLIDES[0].imageUrl;
+    }
   }
 
   if (document.readyState === 'loading') {

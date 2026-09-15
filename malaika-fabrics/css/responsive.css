@@ -30,13 +30,52 @@
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
   /* ── Nav ── */
   .nav {
     padding: var(--space-md) var(--space-lg);
   }
 
+  .nav__mobile-toggle {
+    display: block;
+    color: var(--theme-brand);
+  }
+
+  .nav__actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.4s var(--ease-out);
+    z-index: 99;
+  }
+
+  .nav__actions--open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
   .nav__actions .nav__link {
-    display: none;
+    display: block;
+    font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 0.2em;
   }
 
   /* ── Hero ── */

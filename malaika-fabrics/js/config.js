@@ -31,7 +31,7 @@ const CONFIG = {
   WHATSAPP_MESSAGE: "Hi Malaika Fabrics, I’m interested in your collection and would like more information.",
 
   // ── Intro Settings ─────────────────────────────────────────
-  INTRO_DURATION_MS: 4500,
+  INTRO_DURATION_MS: 1800,
   INTRO_ENABLED:     true,
 
   // ── Social Links ───────────────────────────────────────────
