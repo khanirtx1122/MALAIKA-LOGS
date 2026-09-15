@@ -86,7 +86,7 @@
       const slideEl = document.createElement('div');
       slideEl.className = `hero__slide ${i === 0 ? 'active' : ''} transition-${slide.transition}`;
       slideEl.innerHTML = `
-        <img src="${slide.imageUrl}" alt="${slide.collection}" class="hero__slide-img" loading="${i === 0 ? 'eager' : 'lazy'}" />
+        <img src="${slide.imageUrl}" alt="${slide.collection}" class="hero__slide-img" loading="${i === 0 ? 'eager' : 'lazy'}" ${i === 0 ? 'fetchpriority="high" decoding="sync"' : 'decoding="async"'} />
         <div class="hero__content">
           <div class="hero__ornament" aria-hidden="true">
             <div class="hero__ornament-line"></div>

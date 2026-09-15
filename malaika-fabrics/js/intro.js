@@ -13,12 +13,12 @@
 (function () {
   'use strict';
 
-  // Time before exit begins (brand reveal finishes ~2.5s, ornaments ~2s)
-  const INTRO_DURATION = (window.MF_CONFIG?.INTRO_DURATION_MS) || 3200;
+  // Time before exit begins
+  const INTRO_DURATION = (window.MF_CONFIG?.INTRO_DURATION_MS) || 1500;
   // Duration of the exit animation (must match CSS introExitReveal)
-  const EXIT_DURATION = 800;
+  const EXIT_DURATION = 400;
   // Image cycle interval
-  const IMAGE_INTERVAL = 1200;
+  const IMAGE_INTERVAL = 800;
 
   // Track all timers for cleanup
   let imageInterval = null;
