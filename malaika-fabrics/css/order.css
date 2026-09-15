@@ -1,0 +1,361 @@
+/* ============================================================
+   MALAIKA FABRICS — Order Form Overlay
+   ============================================================ */
+
+/* ── Order Overlay ── */
+.order-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: rgba(13, 10, 12, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-mid) ease;
+}
+
+.order-overlay.order--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Order Panel ── */
+.order-panel {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.30), var(--glow-soft);
+  transform: translateY(32px) scale(0.96);
+  transition: transform var(--duration-mid) var(--ease-out);
+  overscroll-behavior: contain;
+}
+
+.order-overlay.order--open .order-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* ── Panel Header ── */
+.order-panel__header {
+  padding: var(--space-xl) var(--space-xl) 0;
+  position: relative;
+}
+
+.order-panel__close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gray-600);
+  font-size: 1rem;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+
+.order-panel__close:hover {
+  background: var(--color-brand);
+  color: var(--white);
+  border-color: transparent;
+}
+
+.order-panel__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.order-panel__title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+/* ── Product Summary ── */
+.order-product-summary {
+  margin: var(--space-lg) var(--space-xl);
+  padding: var(--space-md);
+  background: var(--pink-50);
+  border: 1px solid var(--pink-200);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: var(--glow-soft);
+}
+
+.order-product-summary__img {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--pink-100);
+  overflow: hidden;
+}
+
+.order-product-summary__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-product-summary__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-product-summary__name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.order-product-summary__price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+.order-product-summary__sub {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  margin-top: 2px;
+}
+
+/* ── Form ── */
+.order-form {
+  padding: 0 var(--space-xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.order-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.order-form__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  font-weight: 600;
+}
+
+.order-form__input {
+  padding: 14px var(--space-md);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  background: var(--white);
+  transition:
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
+  outline: none;
+  width: 100%;
+}
+
+.order-form__input::placeholder {
+  color: var(--gray-400);
+}
+
+.order-form__input:focus {
+  border-color: var(--pink-400);
+  box-shadow: 0 0 0 3px rgba(201, 79, 122, 0.10);
+}
+
+.order-form__input.order-form__input--error {
+  border-color: #e05555;
+  box-shadow: 0 0 0 3px rgba(224, 85, 85, 0.10);
+}
+
+/* ── Payment Method Display ── */
+.order-form__payment {
+  padding: var(--space-md);
+  background: var(--pink-50);
+  border: 1.5px solid var(--pink-200);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.order-form__payment-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--color-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.order-form__payment-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form__payment-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.order-form__payment-sub {
+  font-size: 0.73rem;
+  color: var(--gray-400);
+}
+
+/* ── Error message ── */
+.order-form__error {
+  font-size: 0.72rem;
+  color: #c94949;
+  display: none;
+}
+
+.order-form__error.visible {
+  display: block;
+}
+
+/* ── Submit Button ── */
+.order-form__submit {
+  width: 100%;
+  padding: 18px var(--space-xl);
+  background: linear-gradient(135deg, var(--pink-600), var(--pink-500));
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-spring),
+    box-shadow var(--duration-fast) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--space-xs);
+}
+
+.order-form__submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.order-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(201, 79, 122, 0.42);
+}
+
+.order-form__submit:hover::before {
+  opacity: 1;
+}
+
+.order-form__submit:active {
+  transform: translateY(0);
+}
+
+.order-form__submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── WhatsApp note ── */
+.order-form__wa-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+.order-form__wa-icon {
+  color: #25d366;
+  font-size: 1rem;
+}
+
+/* ── Success state ── */
+.order-success {
+  padding: var(--space-2xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  display: none;
+}
+
+.order-success.visible {
+  display: flex;
+}
+
+.order-success__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-100), var(--pink-200));
+  border: 2px solid var(--pink-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--color-brand);
+}
+
+.order-success__title {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--charcoal);
+}
+
+.order-success__msg {
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  max-width: 320px;
+  line-height: 1.8;
+}
