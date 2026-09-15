@@ -96,8 +96,8 @@
       <div class="nav__actions">
         <a class="nav__link" href="index.html">Home</a>
         <a class="nav__link" href="collections.html">Collections</a>
-        <a class="nav__link" href="wholesale.html">Wholesale</a>
         <a class="nav__link" href="products.html">All Products</a>
+        <a class="nav__link" href="wholesale.html">Wholesale</a>
         <a class="nav__link nav__link--primary" href="contact.html">Contact Us</a>
       </div>
     </nav>
@@ -182,8 +182,8 @@
           <div class="footer__links">
             <a href="index.html" class="footer__link">Home</a>
             <a href="collections.html" class="footer__link">Collections</a>
-            <a href="wholesale.html" class="footer__link">Wholesale</a>
             <a href="products.html" class="footer__link">All Products</a>
+            <a href="wholesale.html" class="footer__link">Wholesale</a>
             <a href="contact.html" class="footer__link">Contact Us</a>
           </div>
         </div>
@@ -208,20 +208,7 @@
 </div><!-- /store -->
 
 
-<!-- ══════════════════════════════════════════════════════════
-     PRODUCT DETAIL MODAL
-═══════════════════════════════════════════════════════════ -->
-<div
-  id="product-modal-backdrop"
-  class="modal-backdrop"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Product details"
->
-  <div class="modal" role="document">
-    <!-- Populated dynamically by productModal.js -->
-  </div>
-</div>
+
 
 
 <!-- ══════════════════════════════════════════════════════════
@@ -244,11 +231,10 @@
      SCRIPTS — loaded in dependency order
 ═══════════════════════════════════════════════════════════ -->
 <script src="js/config.js"></script>
-<script src="js/products.js"></script>
-<script src="js/productModal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
 <script src="js/order.js"></script>
 <script src="js/store.js"></script>
-<script src="js/heroSlider.js"></script>
 <script src="js/intro.js"></script>
 <script src="js/mobileMenu.js"></script>
 

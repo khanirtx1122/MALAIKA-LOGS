@@ -39,7 +39,11 @@ const CONFIG = {
     instagram: "https://instagram.com/malaikafabrics",
     facebook:  "https://facebook.com/malaikafabrics",
     whatsapp:  "https://wa.me/923488153311",
-  }
+  },
+
+  // ── Supabase Configuration ─────────────────────────────────
+  SUPABASE_URL: "https://utqnvqfxvdjlbbxtxipq.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_A3J8YA18pDMPugwjL_1Xwg_Ykd_J6fA"
 };
 
 // Export for use across modules

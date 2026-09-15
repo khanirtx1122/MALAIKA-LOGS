@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="css/products.css" />
   <link rel="stylesheet" href="css/modal.css" />
   <link rel="stylesheet" href="css/order.css" />
+  <link rel="stylesheet" href="css/collections.css" />
+  <link rel="stylesheet" href="css/top-sellers.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
   <!-- Favicon placeholder -->
@@ -85,18 +87,18 @@
       </a>
 
       <button class="nav__mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-          <circle cx="12" cy="5" r="2"></circle>
-          <circle cx="12" cy="12" r="2"></circle>
-          <circle cx="12" cy="19" r="2"></circle>
+        <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
+          <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
 
       <div class="nav__actions">
         <a class="nav__link" href="index.html">Home</a>
         <a class="nav__link" href="collections.html">Collections</a>
-        <a class="nav__link" href="wholesale.html">Wholesale</a>
         <a class="nav__link" href="products.html">All Products</a>
+        <a class="nav__link" href="wholesale.html">Wholesale</a>
         <a class="nav__link nav__link--primary" href="contact.html">Contact Us</a>
       </div>
     </nav>
@@ -152,8 +154,8 @@
           <div class="footer__links">
             <a href="index.html" class="footer__link">Home</a>
             <a href="collections.html" class="footer__link">Collections</a>
-            <a href="wholesale.html" class="footer__link">Wholesale</a>
             <a href="products.html" class="footer__link">All Products</a>
+            <a href="wholesale.html" class="footer__link">Wholesale</a>
             <a href="contact.html" class="footer__link">Contact Us</a>
           </div>
         </div>
@@ -178,20 +180,7 @@
 </div><!-- /store -->
 
 
-<!-- ══════════════════════════════════════════════════════════
-     PRODUCT DETAIL MODAL
-═══════════════════════════════════════════════════════════ -->
-<div
-  id="product-modal-backdrop"
-  class="modal-backdrop"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Product details"
->
-  <div class="modal" role="document">
-    <!-- Populated dynamically by productModal.js -->
-  </div>
-</div>
+
 
 
 <!-- ══════════════════════════════════════════════════════════
@@ -214,8 +203,8 @@
      SCRIPTS — loaded in dependency order
 ═══════════════════════════════════════════════════════════ -->
 <script src="js/config.js"></script>
-<script src="js/products.js"></script>
-<script src="js/productModal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
 <script src="js/order.js"></script>
 <script src="js/store.js"></script>
 <script src="js/heroSlider.js"></script>

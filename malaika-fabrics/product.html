@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#c94f7a" />
 
-  <!-- SEO -->
-  <title>Malaika Fabrics — Premium Women's 3-Piece Suits | Pinkest Blossom Collection</title>
-  <meta name="description" content="Discover exquisite women's 3-piece suits by Malaika Fabrics. Shop our Pinkest Blossom collection of luxury embroidered, printed, and formal ensembles. Order via WhatsApp with Cash on Delivery." />
-  <meta name="keywords" content="women's 3-piece suits, Pakistani fashion, embroidered suits, Malaika Fabrics, luxury women's clothing, shalwar kameez" />
+  <!-- SEO — updated dynamically by JS -->
+  <title>Product — Malaika Fabrics</title>
+  <meta name="description" content="Premium women's 3-piece suit by Malaika Fabrics." />
 
   <!-- Open Graph -->
   <meta property="og:title"       content="Malaika Fabrics — Premium Women's Fashion" />
-  <meta property="og:description" content="Exquisite women's 3-piece suits. Pinkest Blossom collection — crafted with luxury, worn with grace." />
-  <meta property="og:type"        content="website" />
+  <meta property="og:description" content="Exquisite women's 3-piece suits." />
+  <meta property="og:type"        content="product" />
   <meta property="og:locale"      content="en_PK" />
 
   <!-- Preconnect Google Fonts -->
@@ -27,13 +26,11 @@
   <!-- CSS — loaded in dependency order -->
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/intro.css" />
   <link rel="stylesheet" href="css/store.css" />
   <link rel="stylesheet" href="css/products.css" />
   <link rel="stylesheet" href="css/modal.css" />
   <link rel="stylesheet" href="css/order.css" />
-  <link rel="stylesheet" href="css/collections.css" />
-  <link rel="stylesheet" href="css/top-sellers.css" />
+  <link rel="stylesheet" href="css/product-page.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
   <!-- Favicon placeholder -->
@@ -42,54 +39,14 @@
 <body>
 
 <!-- ══════════════════════════════════════════════════════════
-     INTRO — Full-screen animated reveal
-═══════════════════════════════════════════════════════════ -->
-<div id="intro" role="presentation" aria-hidden="true">
-  
-  <div class="intro__images" id="intro-images">
-    <div class="intro__img-wrap active"><img src="assets/intro/intro_1.jpg" alt="" class="intro__img" fetchpriority="high" decoding="sync" /></div>
-    <div class="intro__img-wrap"><img src="assets/intro/intro_2.jpg" alt="" class="intro__img" loading="lazy" decoding="async" /></div>
-    <div class="intro__img-wrap"><img src="assets/intro/intro_3.jpg" alt="" class="intro__img" loading="lazy" decoding="async" /></div>
-  </div>
-
-  <!-- Ambient glow -->
-  <div class="intro__glow" aria-hidden="true"></div>
-
-  <!-- Center content -->
-  <div class="intro__center">
-
-    <!-- Elegant brand name reveal instead of logo -->
-    <h1 class="intro__brand-text" aria-label="Malaika Fabrics">
-      <span class="intro__brand-word">Malaika</span>
-      <span class="intro__brand-word">Fabrics</span>
-    </h1>
-
-    <!-- Expanding line -->
-    <div class="intro__line" aria-hidden="true"></div>
-
-    <!-- Ornament row -->
-    <div class="intro__ornament" aria-hidden="true">
-      <div class="intro__ornament-line"></div>
-      <div class="intro__ornament-diamond"></div>
-      <div class="intro__ornament-line intro__ornament-line--right"></div>
-    </div>
-
-  </div>
-
-  <!-- Skip button -->
-  <button id="intro-skip" aria-label="Skip intro animation">Skip</button>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════════
      MAIN STORE
 ═══════════════════════════════════════════════════════════ -->
-<div id="store">
+<div id="store" class="store--visible">
 
   <!-- ── Navigation ── -->
   <header role="banner" class="header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav__logo" href="#" aria-label="Malaika Fabrics — Home">
+      <a class="nav__logo" href="index.html" aria-label="Malaika Fabrics — Home">
         <div class="nav__logo-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
             <circle cx="16" cy="16" r="14" stroke="var(--theme-brand)" stroke-width="1" fill="none" opacity="0.6"/>
@@ -118,110 +75,14 @@
         <a class="nav__link" href="collections.html">Collections</a>
         <a class="nav__link" href="products.html">All Products</a>
         <a class="nav__link" href="wholesale.html">Wholesale</a>
-        <a class="nav__link nav__link--primary" id="header-contact-wa" href="#">Contact Us</a>
+        <a class="nav__link nav__link--primary" href="contact.html">Contact Us</a>
       </div>
     </nav>
   </header>
 
-  <!-- ── Hero Section ── -->
-  <section class="hero" aria-label="Hero">
-    
-    <!-- Dynamic Slider injected via heroSlider.js -->
-    <div class="hero__slider"></div>
-    
-    <!-- Slider Controls -->
-    <div class="hero__controls">
-      <button class="hero__arrow hero__arrow--prev" aria-label="Previous Outfit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="hero__arrow hero__arrow--next" aria-label="Next Outfit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
-    
-    <!-- Ambient Dynamic Glow overlay -->
-    <div class="hero__ambient-glow"></div>
-
-    <!-- Floating petals decoration -->
-    <div class="hero__petals" aria-hidden="true">
-      <!-- Petals generated by CSS via pseudo-elements / inline styles -->
-      <svg class="hero__petal" style="--petal-dur:16s;--petal-delay:0s;left:8%;width:18px;height:18px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#f8b4cf" opacity="0.7" transform="rotate(20 10 10)"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:19s;--petal-delay:2s;left:22%;width:12px;height:12px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#fcd5e5" opacity="0.6"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:14s;--petal-delay:4s;left:45%;width:22px;height:22px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#f08ab3" opacity="0.5" transform="rotate(-15 10 10)"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:21s;--petal-delay:1s;left:68%;width:14px;height:14px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#f8b4cf" opacity="0.65" transform="rotate(35 10 10)"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:17s;--petal-delay:6s;left:82%;width:20px;height:20px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#e06090" opacity="0.45" transform="rotate(-30 10 10)"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:23s;--petal-delay:3s;left:35%;width:10px;height:10px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#fcd5e5" opacity="0.55"/>
-      </svg>
-      <svg class="hero__petal" style="--petal-dur:15s;--petal-delay:9s;left:58%;width:16px;height:16px;top:-20px" viewBox="0 0 20 20" fill="none">
-        <ellipse cx="10" cy="10" rx="5" ry="9" fill="#f8b4cf" opacity="0.6" transform="rotate(50 10 10)"/>
-      </svg>
-    </div>
-
-
-  </section>
-
-  <!-- ── Collections Carousel ── -->
-  <section class="collections-section" aria-label="Browse collections">
-    <div class="collections-section__header reveal-on-scroll">
-      <p class="collections-section__label">Explore</p>
-      <h2 class="collections-section__title">Our Collections</h2>
-    </div>
-    <div class="collections-carousel">
-      <div class="collections-track" id="collections-track"></div>
-    </div>
-  </section>
-
-  <!-- ── Product Collection ── -->
-  <main id="collection" role="main">
-    <section class="collection" aria-label="Product collection">
-      <!-- Section Header -->
-      <div class="collection__header">
-        <p class="collection__label">Pinkest Blossom</p>
-        <h2 class="collection__title">Our 3-Piece Suits</h2>
-        <p class="collection__subtitle">
-          Each ensemble is thoughtfully crafted — from the delicate embroidery
-          to the flowing dupatta — to make every woman feel extraordinary.
-        </p>
-      </div>
-
-      <!-- Product Grid — populated by store.js -->
-      <div
-        class="product-grid"
-        id="product-grid"
-        role="list"
-        aria-label="Available products"
-      ></div>
-    </section>
-
-    <!-- ── Top Selling Products ── -->
-    <section id="top-sellers" aria-label="Top selling products">
-      <div class="top-sellers">
-        <div class="top-sellers__header reveal-on-scroll">
-          <p class="top-sellers__label">Customer Favourites</p>
-          <h2 class="top-sellers__title">Top Selling Products</h2>
-          <p class="top-sellers__subtitle">
-            The most loved pieces from our collection — handpicked for elegance and quality.
-          </p>
-          <div class="top-sellers__ornament">
-            <div class="top-sellers__ornament-line"></div>
-            <div class="top-sellers__ornament-diamond"></div>
-            <div class="top-sellers__ornament-line top-sellers__ornament-line--right"></div>
-          </div>
-        </div>
-        <div class="top-sellers__grid" id="top-sellers-grid"></div>
-      </div>
-    </section>
+  <!-- ── Product Detail — populated by JS ── -->
+  <main id="product-detail" role="main">
+    <!-- Dynamically rendered -->
   </main>
 
   <!-- ── Footer ── -->
@@ -287,9 +148,6 @@
   </svg>
 </a>
 
-
-
-
 <!-- ══════════════════════════════════════════════════════════
      ORDER FORM OVERLAY
 ═══════════════════════════════════════════════════════════ -->
@@ -307,46 +165,308 @@
 
 
 <!-- ══════════════════════════════════════════════════════════
-     SCRIPTS — loaded in dependency order
+     SCRIPTS
 ═══════════════════════════════════════════════════════════ -->
 <script src="js/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabaseClient.js"></script>
 <script src="js/order.js"></script>
-<script src="js/store.js"></script>
-<script src="js/collectionsCarousel.js"></script>
-<script src="js/topSellers.js"></script>
-<script src="js/heroSlider.js"></script>
-<script src="js/intro.js"></script>
 <script src="js/mobileMenu.js"></script>
 
-<!-- Footer link update from config -->
+<!-- Product Page Logic -->
 <script>
-  (function() {
+(async function() {
+  'use strict';
+
+  // Parse product ID from URL
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  if (!productId) {
+    window.location.href = 'products.html';
+    return;
+  }
+
+  const product = await window.mfDB.getProductById(productId);
+
+  if (!product) {
+    window.location.href = 'products.html';
+    return;
+  }
+
+  // Update page title
+  document.title = `${product.name} — Malaika Fabrics`;
+  document.querySelector('meta[name="description"]').content = product.description || '';
+
+  let currentQty = 1;
+  let activeImageIndex = 0;
+
+  function render() {
+    const main = document.getElementById('product-detail');
+    if (!main) return;
+
+    const allImages = product.images && product.images.length > 0 
+      ? product.images 
+      : (product.image ? [product.image] : []);
+
+    // Pricing
+    const displayPrice = product.salePrice ?? product.price;
+    const priceHTML = product.salePrice
+      ? `<span class="pdp__price">${window.MF_formatPrice(product.salePrice)}</span>
+         <span class="pdp__price-original">${window.MF_formatPrice(product.price)}</span>
+         <span class="pdp__price-discount">${Math.round((1 - product.salePrice / product.price) * 100)}% OFF</span>`
+      : `<span class="pdp__price">${window.MF_formatPrice(product.price)}</span>`;
+
+    // Badge
+    const badgeHTML = product.badge
+      ? `<span class="pdp__badge ${product.badge.toLowerCase() === 'sale' ? 'pdp__badge--sale' : ''}">${product.badge}</span>`
+      : '';
+
+    // Color
+    const colorHTML = product.colorName
+      ? `<div class="pdp__color">
+           <span class="pdp__color-dot" style="background:${product.colorHex || '#c94f7a'}"></span>
+           <span class="pdp__color-name">${product.colorName}</span>
+         </div>`
+      : '';
+
+    // Details
+    const details = [
+      { key: 'Fabric',      val: product.fabric },
+      { key: 'Embroidery',  val: product.embroidery },
+      { key: 'Occasion',    val: product.occasion },
+      { key: 'Includes',    val: product.includes },
+      { key: 'Category',    val: product.category },
+    ].filter(d => d.val);
+
+    const detailsHTML = details.length
+      ? `<div class="pdp__details">
+           ${details.map(d => `
+             <div class="pdp__detail">
+               <span class="pdp__detail-key">${d.key}</span>
+               <span class="pdp__detail-val">${d.val}</span>
+             </div>
+           `).join('')}
+         </div>`
+      : '';
+
+    // Tags
+    const tagsHTML = product.tags && product.tags.length
+      ? `<div class="pdp__tags">
+           ${product.tags.map(t => `<span class="pdp__tag">${t}</span>`).join('')}
+         </div>`
+      : '';
+
+    // Thumbnails
+    const thumbsHTML = allImages.length > 1
+      ? `<div class="pdp__thumbnails">
+           ${allImages.map((img, i) => `
+             <div class="pdp__thumb ${i === 0 ? 'pdp__thumb--active' : ''}" data-index="${i}">
+               <img src="${img}" alt="${product.name} view ${i + 1}" loading="lazy" />
+             </div>
+           `).join('')}
+         </div>`
+      : '';
+
+    main.innerHTML = `
+      <div class="pdp">
+        <!-- Gallery -->
+        <div class="pdp__gallery">
+          <div class="pdp__main-image-wrap">
+            ${badgeHTML}
+            <img class="pdp__main-image" id="pdp-main-img"
+                 src="${allImages[0] || ''}" 
+                 alt="${product.name} — Malaika Fabrics"
+                 width="600" height="800" />
+          </div>
+          ${thumbsHTML}
+        </div>
+
+        <!-- Info -->
+        <div class="pdp__info">
+          <nav class="pdp__breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="pdp__breadcrumb-sep">›</span>
+            <a href="products.html">All Products</a>
+            <span class="pdp__breadcrumb-sep">›</span>
+            <span>${product.name}</span>
+          </nav>
+
+          <p class="pdp__brand">Malaika Fabrics</p>
+          <h1 class="pdp__name">${product.name}</h1>
+
+          <div class="pdp__pricing">${priceHTML}</div>
+
+          ${colorHTML}
+
+          <div class="pdp__divider"></div>
+
+          <!-- Description -->
+          <div>
+            <p class="pdp__desc-label">About This Piece</p>
+            <div class="pdp__desc">${product.description || ''}</div>
+          </div>
+
+          ${detailsHTML}
+
+          <div class="pdp__divider"></div>
+
+          ${tagsHTML}
+
+          <!-- Quantity -->
+          <div>
+            <p class="pdp__qty-label">Quantity</p>
+            <div class="pdp__qty">
+              <button class="pdp__qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+              <input class="pdp__qty-input" id="qty-input" type="number" value="1" min="1" max="99" aria-label="Quantity" />
+              <button class="pdp__qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pdp__actions">
+            <button class="pdp__btn-secondary" id="pdp-add-cart" aria-label="Add ${product.name} to cart">
+              Add to Cart
+            </button>
+            <button class="pdp__btn-primary" id="pdp-buy-now" aria-label="Buy ${product.name} now">
+              Order Now via WhatsApp
+            </button>
+            <p class="pdp__wa-note">
+              <span class="pdp__wa-icon">✓</span>
+              You'll be connected via WhatsApp to confirm your order
+            </p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    attachEvents(allImages);
+  }
+
+  function attachEvents(allImages) {
+    // Quantity controls
+    const qtyInput = document.getElementById('qty-input');
+    const minusBtn = document.getElementById('qty-minus');
+    const plusBtn = document.getElementById('qty-plus');
+
+    if (minusBtn) {
+      minusBtn.addEventListener('click', () => {
+        currentQty = Math.max(1, currentQty - 1);
+        qtyInput.value = currentQty;
+      });
+    }
+
+    if (plusBtn) {
+      plusBtn.addEventListener('click', () => {
+        currentQty = Math.min(99, currentQty + 1);
+        qtyInput.value = currentQty;
+      });
+    }
+
+    if (qtyInput) {
+      qtyInput.addEventListener('change', () => {
+        const val = parseInt(qtyInput.value, 10);
+        currentQty = isNaN(val) ? 1 : Math.max(1, Math.min(99, val));
+        qtyInput.value = currentQty;
+      });
+    }
+
+    // Thumbnail switching
+    const thumbs = document.querySelectorAll('.pdp__thumb');
+    const mainImg = document.getElementById('pdp-main-img');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const index = parseInt(thumb.dataset.index, 10);
+        if (isNaN(index) || index === activeImageIndex) return;
+
+        activeImageIndex = index;
+        if (mainImg && allImages[index]) {
+          mainImg.style.opacity = '0';
+          mainImg.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            mainImg.src = allImages[index];
+            mainImg.style.opacity = '1';
+            mainImg.style.transform = 'scale(1)';
+          }, 200);
+        }
+
+        thumbs.forEach(t => t.classList.remove('pdp__thumb--active'));
+        thumb.classList.add('pdp__thumb--active');
+      });
+    });
+
+    // Add smooth transition to main image
+    if (mainImg) {
+      mainImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    }
+
+    // Add to Cart
+    const addCartBtn = document.getElementById('pdp-add-cart');
+    if (addCartBtn) {
+      addCartBtn.addEventListener('click', () => {
+        // Simple localStorage cart
+        try {
+          const cart = JSON.parse(localStorage.getItem('mf_cart') || '[]');
+          const existing = cart.find(item => item.id === product.id);
+          if (existing) {
+            existing.qty += currentQty;
+          } else {
+            cart.push({
+              id: product.id,
+              name: product.name,
+              price: product.salePrice || product.price,
+              image: product.image,
+              qty: currentQty,
+            });
+          }
+          localStorage.setItem('mf_cart', JSON.stringify(cart));
+        } catch(e) { /* silent */ }
+
+        // Feedback
+        addCartBtn.textContent = '✓ Added to Cart';
+        addCartBtn.style.borderColor = '#25d366';
+        addCartBtn.style.color = '#25d366';
+        setTimeout(() => {
+          addCartBtn.textContent = 'Add to Cart';
+          addCartBtn.style.borderColor = '';
+          addCartBtn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    // Buy Now → WhatsApp
+    const buyNowBtn = document.getElementById('pdp-buy-now');
+    if (buyNowBtn) {
+      buyNowBtn.addEventListener('click', () => {
+        if (window.MF_openOrder) {
+          window.MF_openOrder(product);
+        }
+      });
+    }
+  }
+
+  // Render on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+
+  // Update footer links
+  document.addEventListener('DOMContentLoaded', () => {
     const cfg = window.MF_CONFIG;
     if (!cfg) return;
     
     const waUrl = `https://wa.me/${cfg.WHATSAPP_NUMBER_LINK}?text=${encodeURIComponent(cfg.WHATSAPP_MESSAGE)}`;
-
     const waLink = document.getElementById('footer-wa');
-    if (waLink) {
-      waLink.href = waUrl;
-      waLink.textContent = cfg.WHATSAPP_NUMBER_DISPLAY;
-    }
-    const headerWaLink = document.getElementById('header-contact-wa');
-    if (headerWaLink) {
-      headerWaLink.href = waUrl;
-    }
+    if (waLink) { waLink.href = waUrl; waLink.textContent = cfg.WHATSAPP_NUMBER_DISPLAY; }
     const floatingWaLink = document.getElementById('floating-wa');
-    if (floatingWaLink) {
-      floatingWaLink.href = waUrl;
-    }
+    if (floatingWaLink) { floatingWaLink.href = waUrl; }
     const emailLink = document.getElementById('footer-email');
-    if (emailLink && cfg.STORE_EMAIL) {
-      emailLink.href = `mailto:${cfg.STORE_EMAIL}`;
-      emailLink.textContent = cfg.STORE_EMAIL;
-    }
-  })();
+    if (emailLink && cfg.STORE_EMAIL) { emailLink.href = `mailto:${cfg.STORE_EMAIL}`; emailLink.textContent = cfg.STORE_EMAIL; }
+  });
+})();
 </script>
 
 </body>

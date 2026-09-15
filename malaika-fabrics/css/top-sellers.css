@@ -1,0 +1,424 @@
+/* ============================================================
+   MALAIKA FABRICS — Top Selling Products Section
+   Premium product cards with direct shopping actions.
+   ============================================================ */
+
+/* ══════════════════════════════════════════════
+   SECTION
+══════════════════════════════════════════════ */
+.top-sellers {
+  padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.top-sellers__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.top-sellers__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--theme-brand);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  transition: color 2s var(--ease-in-out);
+}
+
+.top-sellers__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--theme-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  transition: color 2s var(--ease-in-out);
+}
+
+.top-sellers__subtitle {
+  font-size: 0.9rem;
+  color: var(--theme-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  transition: color 2s var(--ease-in-out);
+}
+
+/* ── Ornamental Line ── */
+.top-sellers__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin: var(--space-lg) auto var(--space-md);
+  max-width: 200px;
+}
+
+.top-sellers__ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-300));
+}
+
+.top-sellers__ornament-line--right {
+  background: linear-gradient(90deg, var(--pink-300), transparent);
+}
+
+.top-sellers__ornament-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--color-brand);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════════════════
+   PRODUCT GRID
+══════════════════════════════════════════════ */
+.top-sellers__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ══════════════════════════════════════════════
+   TOP SELLER CARD
+══════════════════════════════════════════════ */
+.ts-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 2px 16px rgba(0,0,0,0.04),
+    0 0 0 1px rgba(201, 79, 122, 0.06);
+  transition:
+    box-shadow var(--duration-mid) var(--ease-out),
+    transform var(--duration-mid) var(--ease-out);
+  will-change: transform, box-shadow;
+}
+
+.ts-card:hover {
+  box-shadow: var(--glow-hover);
+  transform: translateY(-6px);
+}
+
+/* ── Image ── */
+.ts-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--pink-50);
+  cursor: pointer;
+}
+
+.ts-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease-out);
+  will-change: transform;
+}
+
+.ts-card:hover .ts-card__img {
+  transform: scale(1.08);
+}
+
+/* Badge */
+.ts-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* ── Quick View Overlay ── */
+.ts-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,10,12,0.5) 0%, transparent 50%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-md);
+  transition: opacity var(--duration-mid) var(--ease-out);
+  z-index: 3;
+}
+
+.ts-card:hover .ts-card__overlay {
+  opacity: 1;
+}
+
+.ts-card__view-btn {
+  padding: 10px var(--space-lg);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  font-weight: 600;
+  text-align: center;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ts-card__view-btn:hover {
+  background: var(--color-brand);
+  color: var(--white);
+}
+
+/* ── Card Body ── */
+.ts-card__body {
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ts-card__name {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.ts-card__name:hover {
+  color: var(--color-brand);
+}
+
+.ts-card__pricing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 2px;
+}
+
+.ts-card__price {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em;
+}
+
+.ts-card__price-original {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  text-decoration: line-through;
+}
+
+.ts-card__price-badge {
+  font-size: 0.58rem;
+  padding: 2px 7px;
+  background: var(--pink-100);
+  color: var(--color-brand);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ── Direct Action Buttons ── */
+.ts-card__actions {
+  padding: 0 var(--space-md) var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.ts-card__cart-btn {
+  flex: 1;
+  padding: 11px var(--space-sm);
+  background: transparent;
+  color: var(--charcoal);
+  border-radius: var(--radius-md);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1.5px solid var(--pink-200);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    background var(--duration-fast) ease;
+  text-align: center;
+}
+
+.ts-card__cart-btn:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background: var(--pink-50);
+}
+
+.ts-card__cart-btn:active {
+  transform: scale(0.97);
+}
+
+.ts-card__buy-btn {
+  flex: 1;
+  padding: 11px var(--space-sm);
+  background: linear-gradient(135deg, var(--pink-600), var(--pink-500));
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-spring),
+    box-shadow var(--duration-fast) ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-card__buy-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.ts-card__buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 79, 122, 0.35);
+}
+
+.ts-card__buy-btn:hover::before {
+  opacity: 1;
+}
+
+.ts-card__buy-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Cart Toast Notification ── */
+.cart-toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--charcoal);
+  color: var(--white);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  z-index: 999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transition: transform 0.4s var(--ease-spring);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.cart-toast--visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .top-sellers__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .top-sellers__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-sellers {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+
+  .top-sellers__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .ts-card__body {
+    padding: 10px 10px 6px;
+  }
+
+  .ts-card__name {
+    font-size: 0.82rem;
+  }
+
+  .ts-card__price {
+    font-size: 0.9rem;
+  }
+
+  .ts-card__actions {
+    padding: 0 10px 10px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ts-card__cart-btn,
+  .ts-card__buy-btn {
+    font-size: 0.58rem;
+    padding: 10px var(--space-sm);
+    letter-spacing: 0.12em;
+  }
+
+  /* No hover glow on mobile */
+  .ts-card:hover {
+    transform: none;
+  }
+
+  .ts-card:hover .ts-card__img {
+    transform: none;
+  }
+
+  .ts-card:active {
+    transform: scale(0.98);
+    box-shadow: var(--glow-hover);
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-card__actions {
+    flex-direction: row;
+  }
+
+  .ts-card__name {
+    font-size: 0.76rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

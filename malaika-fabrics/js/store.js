@@ -3,6 +3,8 @@
  * =========================================
  * Renders the product grid, handles nav scroll behavior,
  * hero floating petals, and section reveal animations.
+ * 
+ * Product clicks navigate to product.html?id=... (dedicated page).
  */
 
 (function () {
@@ -43,11 +45,13 @@
   }
 
   // ── Render Product Grid ───────────────────────────────────
-  function renderProducts() {
-    const grid     = document.getElementById('product-grid');
-    const products = window.MF_PRODUCTS || [];
+  async function renderProducts() {
+    const grid = document.getElementById('product-grid');
+    if (!grid) return;
 
-    if (!grid || !products.length) return;
+    const products = await window.mfDB.getProducts();
+
+    if (!products || !products.length) return;
 
     grid.innerHTML = '';
 
@@ -59,9 +63,9 @@
 
   function buildProductCard(p) {
     const card = document.createElement('article');
-    card.className   = 'product-card';
+    card.className   = 'product-card reveal-on-scroll';
     card.setAttribute('data-product-id', p.id);
-    card.setAttribute('role', 'button');
+    card.setAttribute('role', 'listitem');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `View ${p.name} — ${window.MF_formatPrice(p.price)}`);
 
@@ -101,18 +105,20 @@
       : '';
 
     card.innerHTML = `
-      <div class="product-card__img-wrap">
+      <a href="product.html?id=${p.id}" class="product-card__img-wrap" aria-label="View ${p.name}">
         ${badgeHTML}
         ${imgHTML}
         <div class="product-card__actions">
-          <button class="product-card__quick-view" data-action="view" aria-label="View details for ${p.name}">
+          <span class="product-card__quick-view">
             View Details
-          </button>
+          </span>
         </div>
-      </div>
+      </a>
       <div class="product-card__body">
         <span class="product-card__category">${p.category}</span>
-        <h3 class="product-card__name">${p.name}</h3>
+        <a href="product.html?id=${p.id}" class="product-card__name-link">
+          <h3 class="product-card__name">${p.name}</h3>
+        </a>
         ${colorSwatchHTML}
         <p class="product-card__desc">${p.description}</p>
         <div class="product-card__pricing">${priceHTML}</div>
@@ -124,15 +130,17 @@
     `;
 
     // ── Card event listeners ──
-    // Click on card → open detail modal
+    // Click on card body area → open product page
     card.addEventListener('click', (e) => {
       const action = e.target.closest('[data-action]')?.dataset?.action;
 
       if (action === 'order') {
+        e.preventDefault();
         e.stopPropagation();
         window.MF_openOrder(p);
-      } else {
-        window.MF_openModal(p);
+      } else if (!e.target.closest('a')) {
+        // Navigate to product page for any non-link click
+        window.location.href = `product.html?id=${p.id}`;
       }
     });
 
@@ -140,12 +148,15 @@
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        window.MF_openModal(p);
+        window.location.href = `product.html?id=${p.id}`;
       }
     });
 
     return card;
   }
+
+  // Expose buildProductCard for use by other modules (e.g., collectionsCarousel.js)
+  window.MF_buildProductCard = buildProductCard;
 
   // ── Nav Scroll Behavior ───────────────────────────────────
   function initNav() {
@@ -165,16 +176,18 @@
     });
   }
 
-  // ── Scroll reveal animation ───────────────────────────────
+  // ── Generalized Scroll Reveal Animation ──────────────────
   function initScrollReveal() {
-    const items = document.querySelectorAll('.product-card');
+    const items = document.querySelectorAll('.product-card, .reveal-on-scroll');
     if (!items.length) return;
 
     // Set initial hidden state
     items.forEach((item, i) => {
+      if (item.style.opacity === '1') return; // Already revealed
       item.style.opacity   = '0';
       item.style.transform = 'translateY(28px)';
-      item.style.transition = `opacity 0.55s ease ${i * 90}ms, transform 0.55s cubic-bezier(0.22,1,0.36,1) ${i * 90}ms`;
+      const delay = Math.min(i * 80, 600); // Cap delay at 600ms
+      item.style.transition = `opacity 0.55s ease ${delay}ms, transform 0.55s cubic-bezier(0.22,1,0.36,1) ${delay}ms`;
     });
 
     if (!window.IntersectionObserver) {
@@ -190,7 +203,6 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // ← This is the critical fix: actually reveal the card
             entry.target.style.opacity   = '1';
             entry.target.style.transform = 'translateY(0)';
             observer.unobserve(entry.target);
@@ -202,13 +214,13 @@
 
     items.forEach(item => observer.observe(item));
 
-    // Hard fallback after 800ms — ensures cards never stay invisible
+    // Hard fallback after 1200ms — ensures items never stay invisible
     setTimeout(() => {
       items.forEach(item => {
         item.style.opacity   = '1';
         item.style.transform = 'translateY(0)';
       });
-    }, 800);
+    }, 1200);
   }
 
   // ── Hero Scroll Handler ───────────────────────────────────
@@ -269,11 +281,20 @@
     }
   }
 
+  // ── Section Header Scroll Reveal ─────────────────────────
+  function initSectionReveals() {
+    const headers = document.querySelectorAll('.collection__header, .collections-section__header, .top-sellers__header');
+    headers.forEach(header => {
+      header.classList.add('reveal-on-scroll');
+    });
+  }
+
   // ── Main Init ─────────────────────────────────────────────
   function init() {
     renderProducts();
     initNav();
     initHeroScroll();
+    initSectionReveals();
     initStoreReveal();
     initFastNavigation();
   }

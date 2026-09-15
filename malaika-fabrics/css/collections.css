@@ -1,0 +1,279 @@
+/* ============================================================
+   MALAIKA FABRICS — Collections Circular Design & Auto-Scroll
+   ============================================================ */
+
+/* ══════════════════════════════════════════════
+   COLLECTIONS SECTION (Home Page Carousel)
+══════════════════════════════════════════════ */
+.collections-section {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.collections-section__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-xl);
+}
+
+.collections-section__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--theme-brand);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  transition: color 2s var(--ease-in-out);
+}
+
+.collections-section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--theme-text-primary);
+  line-height: 1.2;
+  transition: color 2s var(--ease-in-out);
+}
+
+/* ── Carousel Viewport ── */
+.collections-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-md) 0;
+  /* Gradient fade edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+/* ── Scrolling Track ── */
+.collections-track {
+  display: flex;
+  gap: var(--space-xl);
+  width: max-content;
+  animation: collectionsScroll 40s linear infinite;
+  will-change: transform;
+}
+
+.collections-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes collectionsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Collection Item ── */
+.collection-circle {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--duration-mid) var(--ease-out);
+}
+
+.collection-circle:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Circular Image ── */
+.collection-circle__img-wrap {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(201, 79, 122, 0.15);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.06),
+    0 0 0 1px rgba(201, 79, 122, 0.05),
+    var(--glow-soft);
+  transition:
+    border-color var(--duration-mid) ease,
+    box-shadow var(--duration-mid) ease,
+    transform var(--duration-mid) var(--ease-out);
+  position: relative;
+}
+
+.collection-circle:hover .collection-circle__img-wrap {
+  border-color: var(--color-brand);
+  box-shadow:
+    0 8px 32px rgba(201, 79, 122, 0.2),
+    0 0 0 2px var(--color-brand),
+    var(--glow-hover);
+  transform: scale(1.06);
+}
+
+.collection-circle__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.collection-circle:hover .collection-circle__img {
+  transform: scale(1.12);
+}
+
+/* ── Collection Name ── */
+.collection-circle__name {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-text-primary);
+  text-align: center;
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--duration-fast) ease;
+}
+
+.collection-circle:hover .collection-circle__name {
+  color: var(--color-brand);
+}
+
+/* ══════════════════════════════════════════════
+   COLLECTIONS PAGE — Grid Layout
+══════════════════════════════════════════════ */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collection-card {
+  text-decoration: none;
+  display: block;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  transition:
+    transform var(--duration-mid) var(--ease-out),
+    box-shadow var(--duration-mid) var(--ease-out);
+}
+
+.collection-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--glow-hover);
+}
+
+.collection-card__img-wrap {
+  height: 300px;
+  overflow: hidden;
+  background: var(--theme-surface-light);
+}
+
+.collection-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.collection-card:hover .collection-card__img {
+  transform: scale(1.08);
+}
+
+.collection-card__body {
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.collection-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--theme-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.collection-card__count {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .collection-circle__img-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .collection-circle__name {
+    font-size: 0.68rem;
+    max-width: 110px;
+  }
+
+  .collections-track {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-section {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .collection-circle__img-wrap {
+    width: 90px;
+    height: 90px;
+    border-width: 2px;
+  }
+
+  .collection-circle__name {
+    font-size: 0.62rem;
+    max-width: 90px;
+  }
+
+  .collections-track {
+    gap: var(--space-md);
+    animation-duration: 30s;
+  }
+
+  /* Touch-friendly: allow manual scroll too */
+  .collections-carousel {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .collections-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection-card__img-wrap {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-circle__img-wrap {
+    width: 76px;
+    height: 76px;
+  }
+
+  .collection-circle__name {
+    font-size: 0.58rem;
+    max-width: 76px;
+  }
+
+  .collections-track {
+    gap: 12px;
+  }
+}
