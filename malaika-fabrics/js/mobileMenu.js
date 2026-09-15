@@ -11,13 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
     toggleBtn.setAttribute('aria-expanded', !isExpanded);
     navActions.classList.toggle('nav__actions--open');
-    
-    // Prevent background scrolling when menu is open
-    if (!isExpanded) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
   });
 
   // Close menu when a link is clicked
@@ -26,7 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       toggleBtn.setAttribute('aria-expanded', 'false');
       navActions.classList.remove('nav__actions--open');
-      document.body.style.overflow = '';
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !navActions.contains(e.target)) {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      navActions.classList.remove('nav__actions--open');
+    }
   });
 });
