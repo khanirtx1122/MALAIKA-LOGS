@@ -1,0 +1,99 @@
+/* ============================================================
+   MALAIKA FABRICS — Design Tokens
+   Pinkest Blossom Theme
+   ============================================================ */
+
+:root {
+  /* ── Pinkest Blossom Palette ── */
+  --pink-50:  #fff5f8;
+  --pink-100: #ffeaf1;
+  --pink-200: #fcd5e5;
+  --pink-300: #f8b4cf;
+  --pink-400: #f08ab3;
+  --pink-500: #e06090;
+  --pink-600: #c94f7a;
+  --pink-700: #a83762;
+
+  /* ── Gold / Warm Accent ── */
+  --gold-light:  #e8d5a3;
+  --gold:        #c9a96e;
+  --gold-dark:   #a8833a;
+
+  /* ── Neutral / Dark ── */
+  --charcoal:    #1a1218;
+  --dark:        #0d0a0c;
+  --gray-800:    #2d2630;
+  --gray-600:    #5c525a;
+  --gray-400:    #9c8fa0;
+  --gray-200:    #e8e0eb;
+  --gray-100:    #f5f0f7;
+  --white:       #ffffff;
+
+  /* ── Semantic Tokens ── */
+  --color-bg:          var(--white);
+  --color-surface:     var(--pink-50);
+  --color-brand:       var(--pink-600);
+  --color-brand-light: var(--pink-300);
+  --color-accent:      var(--gold);
+  --color-text:        var(--charcoal);
+  --color-text-muted:  var(--gray-600);
+  --color-border:      var(--pink-200);
+
+  /* ── Dynamic Theme Variables (Updated by JS) ── */
+  --theme-bg:          var(--pink-50);
+  --theme-surface-light: var(--pink-100);
+  --theme-surface-dark:  var(--charcoal);
+  --theme-glow-color:  rgba(201, 79, 122, 0.22);
+  --theme-glow-strong: rgba(201, 79, 122, 0.45);
+  --theme-accent:      var(--gold);
+  --theme-brand:       var(--pink-600);
+  --theme-text-primary: var(--charcoal);
+  --theme-text-secondary: var(--gray-600);
+  --theme-border:      var(--pink-200);
+  --theme-header-bg:   rgba(255, 235, 242, 0.88);
+  --theme-header-gradient: rgba(252, 220, 233, 0.6);
+
+  /* ── Glow ── */
+  --glow-soft:   0 0 24px 0 rgba(201, 79, 122, 0.14),
+                 0 0 48px 0 rgba(201, 79, 122, 0.07);
+  --glow-hover:  0 0 32px 4px rgba(201, 79, 122, 0.30),
+                 0 0 64px 8px rgba(201, 79, 122, 0.15),
+                 0 8px 32px rgba(0, 0, 0, 0.10);
+
+  /* ── Typography ── */
+  --font-serif:     'Cormorant Garamond', 'Georgia', serif;
+  --font-display:   'Playfair Display', 'Georgia', serif;
+  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Spacing ── */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   40px;
+  --space-2xl:  64px;
+  --space-3xl:  96px;
+
+  /* ── Border Radius ── */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --radius-pill: 9999px;
+
+  /* ── Transitions ── */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:   cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-mid:  350ms;
+  --duration-slow: 600ms;
+
+  /* ── Z-index Layers ── */
+  --z-base:    1;
+  --z-card:    10;
+  --z-nav:     100;
+  --z-modal:   200;
+  --z-overlay: 300;
+  --z-intro:   400;
+}
